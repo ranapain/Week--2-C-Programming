@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int deg1, deg2, max;
+    printf("Enter degree of first polynomial: ");
+    scanf("%d", &deg1);
+    printf("Enter degree of second polynomial: ");
+    scanf("%d", &deg2);
+
+    max = (deg1 > deg2) ? deg1 : deg2;
+
+    int poly1[20] = {0}, poly2[20] = {0}, sum[20] = {0};
+
+    printf("Enter coefficients of first polynomial:\n");
+    for (int i = deg1; i >= 0; i--) {
+        printf("Coefficient of x^%d: ", i);
+        scanf("%d", &poly1[i]);
+    }
+
+    printf("Enter coefficients of second polynomial:\n");
+    for (int i = deg2; i >= 0; i--) {
+        printf("Coefficient of x^%d: ", i);
+        scanf("%d", &poly2[i]);
+    }
+    for (int i = 0; i <= max; i++)
+        sum[i] = poly1[i] + poly2[i];
+
+    printf("\nResultant Polynomial: ");
+    for (int i = max; i >= 0; i--) {
+        if (sum[i] != 0) {
+            printf("%dx^%d", sum[i], i);
+            if (i > 0) printf(" + ");
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
