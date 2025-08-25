@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[10][10], result[10][10];
+
+    printf("Enter matrix elements:\n");
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            scanf("%d", &a[i][j]);
+
+    // Rotate 90° clockwise
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            result[j][n - 1 - i] = a[i][j];
+
+    printf("Matrix after 90 degree rotation:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++)
+            printf("%d ", result[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
